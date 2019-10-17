@@ -6,8 +6,18 @@
 #define PROGRAM2_ELEMENT_H
 
 
+template <typename T>
 class Element {
+private:
+    T value;
+    Element *next;
 
+public:
+    Element();
+
+    ~Element();
+
+    template <typename N> friend class Stack;
 };
 
 
