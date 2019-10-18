@@ -35,7 +35,7 @@ N Stack<N>::push(N value) {
         } else {
             top = temp;
         }
-        this->head->value = value;
+        top->value = value;
     }
     catch (const std::bad_alloc &) {
         std::cerr << "Something bad happened with memory allocation " << std::endl;
@@ -45,7 +45,7 @@ N Stack<N>::push(N value) {
 
 template<typename N>
 N Stack<N>::pop() {
-    if (this->isEmpty()) {
+    if (this->get_size() == 0) {
         try {
             throw std::runtime_error("There is nothing to delete");
         }
@@ -64,20 +64,19 @@ N Stack<N>::pop() {
 }
 
 template<typename N>
-N Stack<N>::peek() {
+N Stack<N>::peek() noexcept {
     return top->value;
 }
 
 template<typename N>
-size_t Stack<N>::get_size() {
+size_t Stack<N>::get_size() noexcept {
     size_t sizeOfList = 1;
 
-    auto current = top;
-    if (this->isEmpty()) {
+    if (top == nullptr) {
         sizeOfList = 0;
     } else {
-        current = top;
-        while (top->next != nullptr) {
+        auto current = top;
+        while (current->next != nullptr) {
             sizeOfList++;
             current = current->next;
         }
