@@ -5,8 +5,8 @@ project(Test)
 add_subdirectory(lib/googletest)
 
 include_directories(lib/googletest/googletest/include)
-set(SOURCE Stack<Int>Test.cpp main.cpp Stack<char>Test.cpp)
-add_executable(Test ${SOURCE})
+set(SOURCE_FILES Stack<Int>Test.cpp main.cpp Stack<char>Test.cpp)
+add_executable(Test ${SOURCE_FILES})
 target_link_libraries(Test gtest)
 
 include_directories(../StackLibrary)

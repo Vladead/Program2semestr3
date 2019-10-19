@@ -17,13 +17,15 @@ public:
 
     ~Stack();
 
-    N push(N value);   // Add element to stack
+    N push(N value);             // Add element to stack
 
-    N pop();           // Delete element from stack. Return value from deleted element
+    N pop();                     // Delete element from stack. Return value from deleted element
 
     N peek() noexcept ;          // Return value from top of stack
 
-    size_t get_size() noexcept; // Return count of elements in stack
+    size_t get_size() noexcept;  // Return count of elements in stack
+
+    void clear() noexcept ;      // Delete all elements in stack
 };
 
 

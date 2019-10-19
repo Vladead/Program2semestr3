@@ -13,15 +13,7 @@ Stack<N>::Stack() : top(nullptr) {
 
 template<typename N>
 Stack<N>::~Stack() {
-    if (this->get_size() != 0) {
-        Element<N> *temp;
-
-        while (top) {
-            temp = top->next;
-            delete top;
-            top = temp;
-        }
-    }
+    clear();
 }
 
 template<typename N>
@@ -45,14 +37,8 @@ N Stack<N>::push(N value) {
 
 template<typename N>
 N Stack<N>::pop() {
-    if (this->get_size() == 0) {
-        try {
-            throw std::runtime_error("There is nothing to delete");
-        }
-        catch (const std::runtime_error &) {
-            std::cerr << "There is nothing to delete" << std::endl;
-            exit(-1);
-        }
+    if (get_size() == 0) {
+        throw std::runtime_error("There is nothing to delete");
     }
 
     auto current = top->next;
@@ -83,4 +69,17 @@ size_t Stack<N>::get_size() noexcept {
     }
 
     return sizeOfList;
+}
+
+template <typename N>
+void Stack<N>::clear() noexcept {
+    if (get_size() != 0) {
+        Element<N> *temp;
+
+        while (top) {
+            temp = top->next;
+            delete top;
+            top = temp;
+        }
+    }
 }

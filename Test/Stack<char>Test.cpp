@@ -9,7 +9,7 @@
 class StackCharTest : public ::testing::Test {
 
 protected:
-    virtual void SetUp() {
+    void SetUp() override {
         exampleStack.push('p');
         exampleStack.push('r');
         exampleStack.push('e');

@@ -9,7 +9,7 @@ int main() {
     stack.push(31);
     stack.push(32);
     stack.push(33);
-    
+
     std::cout << "Size of stack is " << stack.get_size() << std::endl;
 
     return 0;
