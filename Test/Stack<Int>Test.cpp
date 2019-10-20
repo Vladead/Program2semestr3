@@ -9,33 +9,49 @@
 class StackIntTest : public ::testing::Test {
 protected:
     void SetUp() override {
-        exampleStack.push(0);
-        exampleStack.push(1);
-        exampleStack.push(2);
-        exampleStack.push(3);
-        exampleStack.push(4);
+        testingStack.push(0);
+        testingStack.push(1);
+        testingStack.push(2);
+        testingStack.push(3);
+        testingStack.push(4);
     }
 
-    Stack<int> exampleStack;
+    Stack<int> testingStack;
 };
 
 TEST_F(StackIntTest, push_test) {
-    exampleStack.push(5);
-    ASSERT_EQ(5, exampleStack.peek());
-    exampleStack.pop();
-    ASSERT_EQ(4, exampleStack.peek());
+    testingStack.push(5);
+    ASSERT_EQ(5, testingStack.peek());
+    testingStack.pop();
+    ASSERT_EQ(4, testingStack.peek());
+
+    testingStack.clear();
+    testingStack.push(-12);
+    ASSERT_EQ(-12, testingStack.pop());
+    SetUp();
 }
 
 TEST_F(StackIntTest, pop_test) {
-    ASSERT_EQ(4, exampleStack.pop());
-    ASSERT_EQ(3, exampleStack.peek());
+    ASSERT_EQ(4, testingStack.pop());
+    ASSERT_EQ(3, testingStack.peek());
+
+    testingStack.clear();
+    ASSERT_ANY_THROW(testingStack.pop());
+    SetUp();
 }
 
 TEST_F(StackIntTest, peek_test) {
-    ASSERT_EQ(4, exampleStack.peek());
-    ASSERT_NO_THROW(exampleStack.peek());
+    ASSERT_EQ(4, testingStack.peek());
+
+    testingStack.clear();
+    ASSERT_ANY_THROW(testingStack.peek());
+    SetUp();
 }
 
 TEST_F(StackIntTest, get_size_test) {
-    ASSERT_EQ(5, exampleStack.get_size());
+    ASSERT_EQ(5, testingStack.get_size());
+
+    testingStack.clear();
+    ASSERT_EQ(0, testingStack.get_size());
+    SetUp();
 }

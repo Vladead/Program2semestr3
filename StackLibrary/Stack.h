@@ -21,7 +21,7 @@ public:
 
     N pop();                     // Delete element from stack. Return value from deleted element
 
-    N peek() noexcept ;          // Return value from top of stack
+    N peek() ;                   // Return value from top of stack
 
     size_t get_size() noexcept;  // Return count of elements in stack
 

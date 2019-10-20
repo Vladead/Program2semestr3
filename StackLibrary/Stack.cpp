@@ -50,7 +50,10 @@ N Stack<N>::pop() {
 }
 
 template<typename N>
-N Stack<N>::peek() noexcept {
+N Stack<N>::peek() {
+    if (get_size() == 0) {
+        throw std::runtime_error("There is nothing to show");
+    }
     return top->value;
 }
 
